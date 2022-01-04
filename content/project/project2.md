@@ -1,8 +1,8 @@
 ---
-title: " Riiid AIEd Challenge 2020"
-description: "Created models for knowledge tracing application i.e. the modeling of student knowledge over time.  100M samples for 400K users were provided by organizers. Created LightGBM and Transformer models utilizing Pytorch and Google Cloud, AWS. Ranked top 4%."
+title: "Google Brain - Ventilator Pressure Prediction"
+description: "Simulated a ventilator connected to a sedated patient's lung. This helps overcome the cost barrier of developing new methods for controlling mechanical ventilators. Used LSTM based TF TPU and Pytorch Models. Ranked in top 1% (33/2605)"
 # repo: "#" # delete this line if you want a blog-like page
-tags: [] #["html", "css", "js"]
+tags: [] #["go", "golang", "hugo"]
 weight: 2
 draft: false
 ---
