@@ -1,8 +1,8 @@
 ---
-title: "Google Quest Q&A Labeling"
-description: "Created models for improving automated understanding of complex question answer content. This was a regression task with 30 labels. Utilized multiple Natural language processing models with Huggingface  (Pytorch)  library. Utilized BERT, Roberta model from Huggingface (Pytorch) library for this Natural language processing task. Ranked top 3%."
+title: "Tweet Sentiment Extraction"
+description: "Given a tweet and a sentiment (positive or negative), the objective here was to pick out part of the tweet (word(s) or phrase(s)) that reflects the sentiment.  Utilized Roberta model from Huggingface  (Pytorch) library for this Natural language processing task."
 # repo: "#" # delete this line if you want a blog-like page
-tags: [] #["highlight-js", "syntax-highlighting"]
+tags: [] #["bootstrap", "responsive"]
 weight: 7
 draft: false
 ---

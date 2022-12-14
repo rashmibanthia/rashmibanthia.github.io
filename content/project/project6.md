@@ -1,8 +1,8 @@
 ---
-title: "Tweet Sentiment Extraction"
-description: "Given a tweet and a sentiment (positive or negative), the objective here was to pick out part of the tweet (word(s) or phrase(s)) that reflects the sentiment.  Utilized Roberta model from Huggingface  (Pytorch) library for this Natural language processing task."
+title: " Riiid AIEd Challenge 2020"
+description: "Created models for knowledge tracing application i.e. the modeling of student knowledge over time.  100M samples for 400K users were provided by organizers. Created LightGBM and Transformer models utilizing Pytorch and Google Cloud, AWS. Ranked top 4%."
 # repo: "#" # delete this line if you want a blog-like page
-tags: [] #["bootstrap", "responsive"]
+tags: [] #["html", "css", "js"]
 weight: 6
 draft: false
 ---

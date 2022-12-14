@@ -6,7 +6,7 @@ theme = "minimal"
 
 
 [params]
-    author =  "Rashmi Banthia" #"Calin Tataru"
+    author =  "Rashmi Banthia" 
     description = ""
     githubUsername = "rashmibanthia"
     accent = "black"
