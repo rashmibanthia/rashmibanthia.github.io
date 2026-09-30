@@ -1,15 +1,3 @@
 {{ partial "header" . }}
-
-<main>
-
-    <div>
-        <h2>{{ .Title }}</h2>
-        <h5>{{ .Description }}</h5>
-        {{ partial "tags" . }}
-    </div>
-
-    <div align="start" class="content">{{ .Content }}</div>
-
-</main>
-
+<main class="archive article-page section-wrap" id="main"><div id="top"><p class="eyebrow">FROM THE PROJECT ARCHIVE</p><h1>{{ .Title }}</h1><div class="article-description">{{ .Description | markdownify }}</div><div>{{ .Content }}</div><a class="text-link" href="{{ "project/" | relURL }}">← All earlier projects</a></div></main>
 {{ partial "footer" . }}

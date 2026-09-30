@@ -1,12 +1,3 @@
 {{ partial "header" . }}
-
-<main>
-
-    <h2>{{ .Title }}</h2>
-
-    {{ range (.Paginator 5).Pages }} {{ partial "list-item" . }} {{ end }}
-
-</main>
-
-{{ partial "paginator" . }}
+<main class="archive section-wrap" id="main"><div id="top"><p class="eyebrow">THE PROJECT ARCHIVE</p><h1>Earlier explorations.</h1><p class="archive-intro">A selection from the original site, spanning language, education, time series, and computer vision.</p><a class="text-link" href="{{ "/#work" | relURL }}">← Back to selected work</a></div><div class="archive-grid">{{ range .Pages.ByWeight }}<article><h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2><p>{{ .Description | markdownify }}</p><a class="text-link" href="{{ .RelPermalink }}">View project ↗</a></article>{{ end }}</div></main>
 {{ partial "footer" . }}

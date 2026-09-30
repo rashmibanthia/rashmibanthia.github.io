@@ -3,6 +3,8 @@ languageCode = "en-us"
 title = ""
 publishDir = "docs"
 theme = "minimal"
+# Keep the historical sources locally, but exclude them from all generated output.
+ignoreFiles = ["/content/project/"]
 
 
 [params]
@@ -33,10 +35,6 @@ theme = "minimal"
 #    name = "Posts"
 #    weight = 3
 
-[[menu.main]]
-    url = "/project/"
-    name = "Projects"
-    weight = 4
 
 # Social icons to be shown on the right-hand side of the navigation bar.
 # The "name" field should match the name of the icon in Font Awesome.

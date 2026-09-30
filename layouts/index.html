@@ -1,12 +1,83 @@
 {{ partial "header" . }}
-
-<main>
-    <div class="intro">
-        {{ with .Site.Params.profilePic }} <img class="profile" src="{{ . }}"> {{ end }}
-        <h1>{{ .Site.Title }}</h1>
-        <h2>{{ markdownify .Site.Params.Description }}</h2>
-        {{ with .Content }} <div class="homepage-content text-justify">{{ . }}</div> {{ end }}
+<main id="main">
+<section class="hero personal-hero section-wrap" id="top" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">Rashmi Banthia</h1>
+    <p class="profile-subline">Applied AI · Research · Teaching</p>
+    <p class="hero-intro">I build and study machine learning models, teach how they work, and share what I learn through research and practical projects. My interests span natural language, computer vision, and audio.</p>
+    <ul class="profile-credentials" aria-label="Professional credentials"><li>Kaggle Competitions Master</li><li>Teaching Fellow, Harvard SEAS</li></ul>
+    <div class="hero-actions"><a class="text-link" href="#work">Selected work <span aria-hidden="true">↘</span></a><a class="text-link" href="{{ "files/Rashmi-Banthia-Resume.pdf" | relURL }}">View résumé <span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
+<section class="work-section section-wrap" id="work" aria-labelledby="work-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2 id="work-title">Good questions.<br>Hands-on answers.</h2></div><p>A few projects I’ve spent a lot of time thinking about. From the language we write to the world we listen to.</p></div>
+  <article class="feature-card">
+    <div class="feature-visual" aria-hidden="true"><span class="feature-visual-label">FIELD NOTES / PANTANAL</span><img src="{{ "images/pantanal.svg" | relURL }}" alt="" width="600" height="500" loading="lazy"><span class="sound-caption">LISTENING BEYOND THE NOISE</span></div>
+    <div class="feature-copy"><div class="feature-meta"><span class="pill lime">BIRDCLEF+ 2026</span><span class="stage-dot"></span><span>Working note · in staging</span></div><h3>Listening to<br>the Pantanal.</h3><p>How do you recognize wildlife in a noisy soundscape—with only 90 minutes of CPU time? Our work brings together distillation and diverse audio models to tackle that constraint.</p><p class="feature-authors">With Stefano Morelli and Aman Kapoor · Equal contributions</p><details class="paper-details"><summary>About the working note <span aria-hidden="true">＋</span></summary><p><strong>Listening to the Pantanal: Runtime-Constrained Distillation and Diversity-Aware Ensembling for BirdCLEF+ 2026.</strong></p><p>The ensemble combines sound event detection models with a Perch/ProtoSSM branch using per-class rank fusion. Proceedings are currently in staging.</p></details><div class="feature-links"><a href="https://clef-staging.pages.dev/paper323.pdf">Read staging note <span aria-hidden="true">↗</span></a><a href="https://www.imageclef.org/LifeCLEF2026">Workshop program <span aria-hidden="true">↗</span></a></div></div>
+  </article>
+  <div class="project-grid">
+  {{ range .Site.Data.selected }}
+    <article class="project-card">
+      <div class="project-visual {{ .color }}" aria-hidden="true"><span class="visual-index">{{ .number }} / {{ if eq .visual "pii" }}PROTECT{{ else if eq .visual "text" }}DISTINGUISH{{ else }}UNDERSTAND{{ end }}</span>
+      {{ if eq .visual "pii" }}<div class="redaction"><span>My name is <b>██████</b></span><span>You can reach me at</span><span><b>██████████████</b></span><i>PERSON &nbsp; / &nbsp; EMAIL</i></div>{{ else if eq .visual "text" }}<div class="text-art"><span>Aa<span class="text-cursor">|</span></span><div class="text-lines"><i></i><i></i><i></i><i></i><i></i></div><b>HUMAN / GENERATED</b></div>{{ else }}<div class="math-art"><span>½ + ⅓ = <s>⅖</s></span><div class="math-connector">↓</div><b>What’s the misconception?</b></div>{{ end }}
+      <div class="rank-badge"><strong>{{ .rank }}</strong><span>{{ .field }}</span></div></div>
+      <div class="project-body"><p class="sr-only">{{ .rank }} place, {{ .field }}.</p><p class="project-category">{{ .type }}</p><h3>{{ .title }}</h3><p class="competition-name">{{ .competition }}</p><p class="project-description">{{ .description }}</p><div class="tags">{{ range .tags }}<span>{{ . }}</span>{{ end }}</div><a class="project-link" href="{{ .url }}">Read the solution <span aria-hidden="true">↗</span></a></div>
+    </article>
+  {{ end }}
+  </div>
+  <div class="work-more"><p>There’s more in the notebooks.</p><div><a class="text-link" href="https://www.kaggle.com/rashmibanthia/writeups">All Kaggle writeups ↗</a></div></div>
+</section>
+<section class="teaching-section" id="teaching" aria-labelledby="teaching-title">
+  <div class="section-wrap teaching-layout">
+    <div class="teaching-intro">
+      <p class="eyebrow">02 / TEACHING</p>
+      <h2 id="teaching-title">The other half<br>of learning?<br><em>Teaching.</em></h2>
+      <p>I’m a Teaching Fellow for machine learning and data science at Harvard SEAS and Harvard Extension. I’ve been teaching in this field since 2016.</p>
+      <p>I like working through hard problems—and helping others find their way through them, too.</p>
+      <a class="text-link" href="{{ "files/Rashmi-Banthia-Resume.pdf" | relURL }}">View my résumé ↗</a>
     </div>
+    <div class="course-list">
+      <p class="eyebrow teaching-group-label">CURRENT TEACHING</p>
+      <div class="course-row"><span>01</span><div><h3>Practical machine learning</h3><p>AC215 · Advanced Practical Data Science</p></div></div>
+      <div class="course-row"><span>02</span><div><h3>Data science foundations</h3><p>CS109A / CS109B</p></div></div>
+      <p class="eyebrow teaching-group-label workshop-label">SUMMER WORKSHOPS · 2025 &amp; 2026</p>
+      <div class="course-row workshop-row"><span>03</span><div><h3>Professional AI workshops at MIT</h3><p>Teaching Fellow · Summers 2025 and 2026</p><p>With Prof. Wojciech Matusik and Prof. Hanspeter Pfister</p></div></div>
+      <div class="previous-teaching">
+        <h3>Previous teaching</h3>
+        <p>Earlier Teaching Fellow roles include Harvard Business School and these courses:</p>
+        <ul><li>Data Science Pipeline and Critical Thinking</li><li>CSCI E-82 · Machine learning in practice</li></ul>
+      </div>
+      <div class="teaching-note"><span aria-hidden="true">✳</span><p>From the first model to the experiment that finally makes sense.</p></div>
+    </div>
+  </div>
+</section>
+<section class="notes-section section-wrap" id="resources" aria-labelledby="notes-title">
+  <div class="notes-heading"><p class="eyebrow">SHARING WHAT I LEARN</p><h2 id="notes-title">Talks &amp; teaching materials</h2></div>
+  <ul class="resource-list">
+    <li><a href="https://www.youtube.com/watch?v=BrFfHC_Q3C0">
+      <span class="resource-kind">FULL TALK</span><div class="resource-copy">
+      <h3>How to Learn from Kaggle Competitions?</h3>
+      <p class="resource-meta">Boston College · Data Science Speaker Series · May 12, 2025</p>
+      <p>My talk on learning through Kaggle competitions.</p>
+      </div><span class="note-cta">Watch the talk ↗</span>
+    </a></li>
+    <li><a href="https://github.com/Harvard-CS1090/2026_CS1090B_public">
+      <span class="resource-kind">TEACHING MATERIALS</span><div class="resource-copy">
+      <h3>Deep learning, one notebook at a time.</h3>
+      <p class="resource-meta">Harvard CS1090B · Spring 2026</p>
+      <p>Created 9 of the 12 section notebooks. PyTorch exercises and solutions, from neural networks to transformers.</p>
+      </div><span class="note-cta">Explore the notebooks ↗</span>
+    </a></li>
+  </ul>
+  <div class="resource-more"><p>More code to explore</p><div><a class="text-link" href="https://www.kaggle.com/rashmibanthia/code">Kaggle notebooks ↗</a><a class="text-link" href="https://github.com/rashmibanthia/aiornot">AI or not? · GitHub ↗</a></div></div>
+</section>
+<section class="about-section section-wrap" id="about" aria-labelledby="about-title">
+  <div><h2 id="about-title">About me</h2></div>
+  <div class="about-copy">
+    <p class="large-copy">My work spans applied AI, machine learning, teaching, and research, with a focus on natural language, computer vision, and audio. I enjoy tackling challenging problems and sharing what I learn.</p>
+    <div class="about-interests"><span>Natural language</span><span>Computer vision</span><span>Audio</span></div>
+  </div>
+</section>
+<section class="contact-section section-wrap" id="contact" aria-labelledby="contact-title"><p class="eyebrow">KEEP THE CONVERSATION GOING</p><div class="contact-main"><h2 id="contact-title">Let’s compare<br><em>notes.</em></h2><a class="contact-circle" href="https://www.linkedin.com/in/rashmibanthia/" aria-label="Connect with Rashmi on LinkedIn">↗</a></div><div class="contact-bottom"><p>Machine learning, teaching, or an interesting problem.<br>I’d love to hear what you’re working on.</p><div><a href="https://www.linkedin.com/in/rashmibanthia/">LinkedIn ↗</a><a href="https://github.com/rashmibanthia/">GitHub ↗</a><a href="https://www.kaggle.com/rashmibanthia">Kaggle ↗</a></div></div></section>
 </main>
-
 {{ partial "footer" . }}

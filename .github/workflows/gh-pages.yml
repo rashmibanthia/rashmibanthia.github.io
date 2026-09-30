@@ -1,30 +1,39 @@
-name: github pages
+name: Build and check website
 
 on:
   push:
     branches:
-      - main  # Set a branch to deploy
+      - main
+  pull_request:
+  workflow_dispatch:
+
+# GitHub Pages publishes the committed main/docs directory. This workflow
+# validates that source and published output stay in sync; it does not write
+# to the historical, unused gh-pages branch or change any domain settings.
+permissions:
+  contents: read
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  check:
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+          persist-credentials: false
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3
         with:
-          hugo-version: 'latest'
-          # extended: true
+          hugo-version: '0.128.2'
 
       - name: Build
-        run: hugo --minify
+        run: ./scripts/build.sh
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir:  "docs"
+      - name: Check links and approved content
+        run: python3 scripts/check_site.py
+
+      - name: Check JavaScript syntax
+        run: node --check static/js/portfolio.js
+
+      - name: Check committed Pages output matches source
+        run: diff -qr docs ../preview
